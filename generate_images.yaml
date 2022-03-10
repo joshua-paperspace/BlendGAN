@@ -31,9 +31,23 @@ jobs:
 
         cp /inputs/models/pretrained_models/* ./pretrained_models/
 
-        python generate_image.py --size 1024 --pics 1 --ckpt ./pretrained_models/blendgan.pt --style_img /inputs/styleImage/bird.png --outdir results/temp_results
+        python generate_image.py --size 1024 --pics 1 --ckpt ./pretrained_models/blendgan.pt --style_img /inputs/styleImage/bird.png --outdir ./results/generatedImages
 
-        cp results/temp_results /ouputs/
+        echo ls ./results/generatedImages
+
+        ls ./results/generatedImages
+
+        mkdir /outputs/generatedImages
+
+        mv ./results/generatedImages/* /outputs/generatedImages/
+
+        echo ls /outputs/
+
+        ls /outputs/
+
+        echo ls /outputs/generatedImages/
+
+        ls /outputs/generatedImages/
     needs:
       - CloneRepo
     outputs:
@@ -42,4 +56,4 @@ jobs:
             with:
                 ref: dsjckwctvtk0cgi
     resources:
-      instance-type: A6000
+      instance-type: A5000
