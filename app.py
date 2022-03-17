@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 import torch
-from preprocess import imgToTensor
+# from preprocess import imgToTensor
 # from resnet import resnet18
 import os
 import subprocess
