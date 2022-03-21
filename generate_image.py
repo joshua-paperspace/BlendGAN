@@ -71,9 +71,9 @@ def run(size, pics, ckpt, style_img, outdir):
     args.style_img = style_img
     args.outdir = outdir
 
-    outdir = args.outdir
-    if not os.path.exists(outdir):
-        os.makedirs(outdir, exist_ok=True)
+    # outdir = args.outdir
+    # if not os.path.exists(outdir):
+    #     os.makedirs(outdir, exist_ok=True)
 
     args.latent = 512
     args.n_mlp = 8
