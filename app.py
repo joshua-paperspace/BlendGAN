@@ -27,7 +27,7 @@ if uploaded_file is not None:
     st.write("Generating...")
 
     
-    generated_img = generate_image.run(size=1024, pics=1, ckpt='/opt/models/pretrained_models/blendgan.pt', style_img='./test_imgs/jr_style_imgs/bird.jpeg', outdir='./results/generated_image/jr_test/')
+    generated_img = generate_image.run(size=1024, pics=1, ckpt='/opt/models/pretrained_models/blendgan.pt', style_img='./test_imgs/jr_style_imgs/abstract_image_1017.jpeg', outdir='./results/generated_image/jr_test/')
     # bashCommand = "python generate_image.py --size 1024 --pics 1 --ckpt ./pretrained_models/blendgan.pt --style_img ./test_imgs/jr_style_imgs/bird.png --outdir results/generated_pairs/jr_test2/"
     # process = subprocess.run(bashCommand)
     # output, error = process.communicate()
