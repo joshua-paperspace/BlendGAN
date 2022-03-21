@@ -6,6 +6,7 @@ import torch
 # from resnet import resnet18
 import os
 import subprocess
+import generate_image
 
 # classes = ('plane', 'car', 'bird', 'cat',
 #         'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
@@ -26,10 +27,10 @@ if uploaded_file is not None:
     st.write("Generating...")
 
     
-
-    bashCommand = "python generate_image.py --size 1024 --pics 1 --ckpt ./pretrained_models/blendgan.pt --style_img ./test_imgs/jr_style_imgs/bird.png --outdir results/generated_pairs/jr_test2/"
-    process = subprocess.run(bashCommand)
-    output, error = process.communicate()
+    generated_img = generate_image.run(size=1024, pics=1, ckpt='./pretrained_models/blendgan.pt', style_img='./test_imgs/jr_style_imgs/bird.jpeg', outdir='results/generated_pairs/jr_test2/')
+    # bashCommand = "python generate_image.py --size 1024 --pics 1 --ckpt ./pretrained_models/blendgan.pt --style_img ./test_imgs/jr_style_imgs/bird.png --outdir results/generated_pairs/jr_test2/"
+    # process = subprocess.run(bashCommand)
+    # output, error = process.communicate()
 
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # model = resnet18(3, 10)
@@ -41,4 +42,5 @@ if uploaded_file is not None:
     # _, predicted = torch.max(output.data, 1)
     # prediction = classes[predicted]
 
-    st.write(image)
+    # image = Image.open(uploaded_file)
+    st.image(generated_img)
