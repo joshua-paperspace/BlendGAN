@@ -41,7 +41,7 @@ def generate(args, g_ema, device, mean_latent, sample_style, add_weight_index):
             sample2 = ten2cv(sample2)
             out = np.concatenate([sample1, sample2], axis=1)
 
-            cv2.imwrite(f'{args.outdir}/{str(i).zfill(6)}.jpg', sample2)
+            # cv2.imwrite(f'{args.outdir}/{str(i).zfill(6)}.jpg', sample2)
             return sample2
 
 

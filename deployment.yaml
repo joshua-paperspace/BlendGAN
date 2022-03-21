@@ -4,9 +4,8 @@ command:
   - /bin/sh
   - '-c'
   - |
-    echo ls /opt/models/
-    ls /opt/models/
-    cp -r /opt/models/* opt/repos/repo/
+    echo ls /opt/models/pretrained_models
+    ls /opt/models/pretrained_models
     echo ls /opt/repos/repo
     ls /opt/repos/repo
     cd /opt/repos/repo
@@ -24,4 +23,4 @@ repositories:
       ref: main
 resources:
   replicas: 1
-  instanceType: C4
+  instanceType: C5
