@@ -48,6 +48,8 @@ def generate(args, g_ema, device, mean_latent, sample_style, add_weight_index):
 
 
 def run(size, pics, ckpt, style_img, outdir):
+    
+    # Change device type below depending on whether running on GPU (cuda) or CPU
     # device = 'cuda'
     device = 'cpu'
 
@@ -72,10 +74,6 @@ def run(size, pics, ckpt, style_img, outdir):
     args.ckpt = ckpt
     args.style_img = style_img
     args.outdir = outdir
-
-    # outdir = args.outdir
-    # if not os.path.exists(outdir):
-    #     os.makedirs(outdir, exist_ok=True)
 
     args.latent = 512
     args.n_mlp = 8
@@ -123,84 +121,12 @@ def run(size, pics, ckpt, style_img, outdir):
     return generated_img
 
 
-    # device = 'cuda'
-
-    # parser = argparse.ArgumentParser()
-
-    # parser.add_argument('--size', type=int, default=1024)
-    # parser.add_argument('--pics', type=int, default=20, help='N_PICS')
-    # parser.add_argument('--truncation', type=float, default=0.75)
-    # parser.add_argument('--truncation_mean', type=int, default=4096)
-    # parser.add_argument('--ckpt', type=str, default='', help='path to BlendGAN checkpoint')
-    # parser.add_argument('--style_img', type=str, default=None, help='path to style image')
-    # parser.add_argument('--sample_zs', type=str, default=None)
-    # parser.add_argument('--add_weight_index', type=int, default=6)
-
-    # parser.add_argument('--channel_multiplier', type=int, default=2)
-    # parser.add_argument('--outdir', type=str, default="")
-
-    # args = parser.parse_args()
-
-    # args.size = size
-    # args.pics = pics
-    # args.ckpt = ckpt
-    # args.style_img = style_img
-    # args.outdir = outdir
-
-    # # outdir = args.outdir
-    # if not os.path.exists(arg.outdir):
-    #     os.makedirs(args.outdir, exist_ok=True)
-
-    # #??
-    # truncation = 0.75
-    # latent = 512
-    # n_mlp = 8
-    # channel_multiplier = 2
-    # truncation_mean = 4096
-    # add_weight_index = 6
-
-    # checkpoint = torch.load(ckpt)
-    # model_dict = checkpoint['g_ema']
-    # if "latent_avg" in checkpoint.keys():
-    #     latent_avg = checkpoint["latent_avg"]
-    # else:
-    #     latent_avg = None
-    # if "truncation" in checkpoint.keys():
-    #     truncation = checkpoint["truncation"]
-
-    # print('ckpt: ', ckpt)
-    # print('truncation: ', truncation)
-
-    # g_ema = Generator(
-    #     size, latent, n_mlp, channel_multiplier=channel_multiplier, load_pretrained_vgg=False
-    # ).to(device)
-    # g_ema.load_state_dict(model_dict)
-
-    # if truncation < 1:
-    #     if latent_avg is not None:
-    #         mean_latent = latent_avg
-    #         print('### use mean_latent in ckpt["latent_avg"]')
-    #     else:
-    #         with torch.no_grad():
-    #             mean_latent = g_ema.mean_latent(truncation_mean)
-    #             print('### generate mean_latent with \'g_ema.mean_latent\'')
-    # else:
-    #     mean_latent = None
-    #     print('### truncation = 1, mean_latent is None')
-
-    # if style_img is not None:
-    #     img = cv2.imread(style_img, 1)
-    #     img = cv2ten(img, device)
-    #     sample_style = g_ema.get_z_embed(img)
-    # else:
-    #     sample_style = torch.randn(1, latent, device=device)
-
-    # generate(args, g_ema, device, mean_latent, sample_style, add_weight_index)
-
-    # print('Done!')
 
 if __name__ == '__main__':
+
+    # Change device type below depending on whether running on GPU (cuda) or CPU
     device = 'cuda'
+    # device = 'cpu'
 
     parser = argparse.ArgumentParser()
 
