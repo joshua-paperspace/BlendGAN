@@ -46,8 +46,8 @@ def generate(args, g_ema, device, mean_latent, sample_style, add_weight_index):
 
 
 def run(size, pics, ckpt, style_img, outdir):
-    device = 'cuda'
-    # device = 'cpu'
+    # device = 'cuda'
+    device = 'cpu'
 
     parser = argparse.ArgumentParser()
 

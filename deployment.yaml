@@ -4,18 +4,14 @@ command:
   - /bin/sh
   - '-c'
   - |
-    echo ls /opt/models/pretrained_models
-    ls /opt/models/pretrained_models
-    echo ls /opt/repos/repo
-    ls /opt/repos/repo
     cd /opt/repos/repo
     pip install -r requirements.txt
     streamlit run app.py
 models:
-  - id: mo8o6kb9j1kn79
+  - id: mosz1h7q3cpntkj
     path: /opt/models
 repositories:
-  dataset: ds698527wz6sque
+  dataset: dsvvvrd9msdm4eo
   mountPath: /opt/repos
   repositories:
     - url: https://github.com/joshua-paperspace/BlendGAN
