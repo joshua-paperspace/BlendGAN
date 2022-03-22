@@ -11,10 +11,10 @@ jobs:
   GenerateImages:
     inputs:
         repo: CloneRepo.outputs.repo
-        models: 
+        pretrainedModels: 
             type: dataset
             with:
-                ref: dsvvvrd9msdm4eo
+                ref: dslaw0wi7htu6t7
         styleImage:
             type: dataset
             with:
@@ -25,13 +25,27 @@ jobs:
       script: >-
         cd /inputs/repo/
 
+        mkdir ./pretrained_models
+
         echo ls
 
         ls
 
-        cp /inputs/pretrained_models/* ./pretrained_models/
+        cp /inputs/pretrainedModels/* ./pretrained_models/
 
-        python generate_image.py --size 1024 --pics 1 --ckpt ./pretrained_models/blendgan.pt --style_img /inputs/styleImage/bird.png --outdir ./results/generatedImages
+        echo pwd
+
+        pwd
+
+        echo ls
+
+        ls
+
+        echo ls ./pretrained_models/
+
+        ls ./pretrained_models/
+
+        python generate_image.py --size 1024 --pics 1 --ckpt ./pretrained_models/blendgan.pt --style_img /inputs/styleImage/abstract_image_1017.jpeg --outdir ./results/generatedImages
 
         echo ls ./results/generatedImages
 
