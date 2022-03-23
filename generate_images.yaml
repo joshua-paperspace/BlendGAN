@@ -45,7 +45,7 @@ jobs:
 
         ls ./pretrained_models/
 
-        python generate_image.py --size 1024 --pics 1 --ckpt ./pretrained_models/blendgan.pt --style_img /inputs/styleImage/abstract_image_1017.jpeg --outdir ./results/generatedImages
+        python generate_image.py --size 1024 --pics 5 --ckpt ./pretrained_models/blendgan.pt --style_img /inputs/styleImage/abstract_image_1017.jpeg --outdir ./results/generatedImages
 
         echo ls ./results/generatedImages
 
