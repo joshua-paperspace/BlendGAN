@@ -49,9 +49,7 @@ def generate(args, g_ema, device, mean_latent, sample_style, add_weight_index):
 
 def run(size, pics, ckpt, style_img, outdir):
     
-    # Change device type below depending on whether running on GPU (cuda) or CPU
-    # device = 'cuda'
-    device = 'cpu'
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     parser = argparse.ArgumentParser()
 
@@ -121,12 +119,9 @@ def run(size, pics, ckpt, style_img, outdir):
     return generated_img
 
 
-
 if __name__ == '__main__':
 
-    # Change device type below depending on whether running on GPU (cuda) or CPU
-    device = 'cuda'
-    # device = 'cpu'
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     parser = argparse.ArgumentParser()
 
