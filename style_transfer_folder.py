@@ -84,8 +84,9 @@ if __name__ == '__main__':
                 img_out_ten, _ = g_ema([sample_in], z_embed=sample_style, add_weight_index=args.add_weight_index,
                                        input_is_latent=True, return_latents=False, randomize_noise=False)
                 img_out = ten2cv(img_out_ten)
-            out = np.concatenate([img_in, img_style, img_out], axis=1)
-            # out = img_out
+                
+            # out = np.concatenate([img_in, img_style, img_out], axis=1)
+            out = img_out
             cv2.imwrite(f'{args.outdir}/{name_in}_v_{name_style}.jpg', out)
 
     print('Done!')
