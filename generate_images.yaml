@@ -27,16 +27,41 @@ jobs:
     with:
       image: nvcr.io/nvidia/pytorch:21.10-py3
       script: >-
+
+        echo 3
+
+        echo ls /inputs
+
+        ls /inputs/
+
+        echo ls /inputs/styleImage
+
+        ls /inputs/styleImage/
+
+        echo ls /inputs/inputImages
+
+        ls /inputs/inputImages/
+
+        echo ls /inputs/pretrainedModels
+
+        ls /inputs/pretrainedModels/
+
         cd /inputs/repo/
 
         mkdir ./pretrained_models
 
         cp /inputs/pretrainedModels/* ./pretrained_models/
 
-        python style_transfer_folder.py --size 1024 --ckpt ./pretrained_models/blendgan.pt --psp_encoder_ckpt ./pretrained_models/psp_encoder.pt --style_img_path /inputs/styleImage/ --input_img_path /inputs/inputImages --outdir ./results/generatedImages
+        mkdir ./results
+
+        mkdir ./results/generatedImages
+
+        python sleep.py
+
+        # python style_transfer_folder.py --size 1024 --ckpt ./pretrained_models/blendgan.pt --psp_encoder_ckpt ./pretrained_models/psp_encoder.pt --style_img_path /inputs/styleImage/ --input_img_path /inputs/inputImages --outdir ./results/generatedImages
 
         echo ls ./results
-        
+
         ls ./results
 
         echo ls ./results/generatedImages
@@ -53,4 +78,4 @@ jobs:
             with:
                 ref: ds869um6ka0olpn
     resources:
-      instance-type: P6000
+      instance-type: P4000
