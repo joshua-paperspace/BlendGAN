@@ -35,6 +35,14 @@ jobs:
 
         python style_transfer_folder.py --size 1024 --ckpt ./pretrained_models/blendgan.pt --psp_encoder_ckpt ./pretrained_models/psp_encoder.pt --style_img_path /inputs/styleImage/ --input_img_path /inputs/inputImages --outdir ./results/generatedImages
 
+        echo ls ./results
+        
+        ls ./results
+
+        echo ls ./results/generatedImages
+
+        ls ./results/generatedImages
+
         mv ./results/generatedImages/* /outputs/generatedImages/
 
     needs:
