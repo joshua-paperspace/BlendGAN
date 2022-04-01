@@ -22,7 +22,7 @@ jobs:
         inputImages:
             type: dataset
             with:
-                ref: dszwqn13xpdpm16
+                ref: dszwqn13xpdpm16:64qd0ku
     uses: script@v1
     with:
       image: nvcr.io/nvidia/pytorch:21.10-py3
@@ -56,9 +56,9 @@ jobs:
 
         mkdir ./results/generatedImages
 
-        python sleep.py
+        python style_transfer_folder.py --size 1024 --ckpt ./pretrained_models/blendgan.pt --psp_encoder_ckpt ./pretrained_models/psp_encoder.pt --style_img_path /inputs/styleImage/ --input_img_path /inputs/inputImages --outdir ./results/generatedImages
 
-        # python style_transfer_folder.py --size 1024 --ckpt ./pretrained_models/blendgan.pt --psp_encoder_ckpt ./pretrained_models/psp_encoder.pt --style_img_path /inputs/styleImage/ --input_img_path /inputs/inputImages --outdir ./results/generatedImages
+        # python sleep.py
 
         echo ls ./results
 
