@@ -42,7 +42,7 @@ def run(size, ckpt, psp_encoder_ckpt, style_img_path, img_in):
     args.ckpt = ckpt
     args.psp_encoder_ckpt = psp_encoder_ckpt
     args.style_img_path = style_img_path
-    args.input_img_path = input_img_path
+    # args.input_img_path = input_img_path
 
     args.latent = 512
     args.n_mlp = 8
