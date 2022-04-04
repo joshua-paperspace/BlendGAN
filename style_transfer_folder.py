@@ -31,7 +31,7 @@ def run(size, ckpt, psp_encoder_ckpt, style_img_path, img_in):
     parser.add_argument('--psp_encoder_ckpt', type=str, default='', help='path to psp_encoder checkpoint')
 
     parser.add_argument('--style_img_path', type=str, default=None, help='path to style image')
-    parser.add_argument('--input_img_path', type=str, default=None, help='path to input image')
+    # parser.add_argument('--input_img_path', type=str, default=None, help='path to input image')
     parser.add_argument('--add_weight_index', type=int, default=6)
 
     parser.add_argument('--channel_multiplier', type=int, default=2)
@@ -60,7 +60,7 @@ def run(size, ckpt, psp_encoder_ckpt, style_img_path, img_in):
     psp_encoder = PSPEncoder(args.psp_encoder_ckpt, output_size=args.size).to(device)
     psp_encoder.eval()
 
-    input_img_paths = sorted(glob.glob(os.path.join(args.input_img_path, '*.*')))
+    # input_img_paths = sorted(glob.glob(os.path.join(args.input_img_path, '*.*')))
     style_img_paths = sorted(glob.glob(os.path.join(args.style_img_path, '*.*')))[:]
 
 
