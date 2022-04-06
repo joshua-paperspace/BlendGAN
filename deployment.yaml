@@ -4,6 +4,7 @@ command:
   - /bin/sh
   - '-c'
   - |
+    apt-get update -y && apt-get -y install libgl1
     cd /opt/repos/repo
     pip install -r requirements.txt
     streamlit run app.py
