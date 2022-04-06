@@ -14,10 +14,12 @@ st.title("ResNet + Streamlit Classification")
 uploaded_file = st.file_uploader("Choose an image...", type=['png','jpeg'])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
+    img_array = np.array(image)
+    img_in = cv2.cvtColor(img_array, cv2.COLOR_RGB2BGR)
     # img_in = cv2.imread(input_img_path, 1)
     # image = cv2.imdecode(np.fromstring(uploaded_file, np.uint8), cv2.IMREAD_UNCHANGED)
-    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-    img_in = cv2.imdecode(file_bytes, 1)
+    # file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    # img_in = cv2.imdecode(file_bytes, 1)
 
     # for files in os.listdir("dataset3"):
     # if os.path.exists("./uploaded_img"):
