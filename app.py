@@ -5,13 +5,19 @@ import torch
 import os
 import subprocess
 import style_transfer_folder
+import numpy as np
+import cv2
 # import generate_image
 
 st.title("ResNet + Streamlit Classification")
 
 uploaded_file = st.file_uploader("Choose an image...", type=['png','jpeg'])
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
+    # image = Image.open(uploaded_file)
+    # img_in = cv2.imread(input_img_path, 1)
+    # image = cv2.imdecode(np.fromstring(uploaded_file, np.uint8), cv2.IMREAD_UNCHANGED)
+    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    image = cv2.imdecode(file_bytes, 1)
 
     # for files in os.listdir("dataset3"):
     # if os.path.exists("./uploaded_img"):
