@@ -18,7 +18,6 @@ np.random.seed(seed)
 torch.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
 
-# !python style_transfer_folder.py --size 1024 --ckpt ./pretrained_models/blendgan.pt --psp_encoder_ckpt ./pretrained_models/psp_encoder.pt --style_img_path ./test_imgs/jr_style_imgs/ --input_img_path ./test_imgs/face_imgs/ --outdir results/jr_style_transfer/
 
 def run(size, ckpt, psp_encoder_ckpt, style_img_path, img_in):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -60,13 +59,8 @@ def run(size, ckpt, psp_encoder_ckpt, style_img_path, img_in):
     psp_encoder = PSPEncoder(args.psp_encoder_ckpt, output_size=args.size).to(device)
     psp_encoder.eval()
 
-    # input_img_paths = sorted(glob.glob(os.path.join(args.input_img_path, '*.*')))
     style_img_paths = sorted(glob.glob(os.path.join(args.style_img_path, '*.*')))[:]
 
-
-
-    # name_in = os.path.splitext(os.path.basename(input_img_path))[0]
-    # img_in = cv2.imread(input_img_path, 1)
     img_in_ten = cv2ten(img_in, device)
     img_in = cv2.resize(img_in, (args.size, args.size))
 
@@ -83,15 +77,11 @@ def run(size, ckpt, psp_encoder_ckpt, style_img_path, img_in):
                                     input_is_latent=True, return_latents=False, randomize_noise=False)
             img_out = ten2cv(img_out_ten)
         
-        
-
-        # out = np.concatenate([img_in, img_style, img_out], axis=1)
         out = img_out
         break
-        # cv2.imwrite(f'{args.outdir}/{name_in}_v_{name_style}.jpg', out)
 
     return out
-    # print('Done!')
+
 
 if __name__ == '__main__':
     

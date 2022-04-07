@@ -10,7 +10,7 @@ command:
     streamlit run app.py
 models:
   - id: mosz1h7q3cpntkj
-    path: /opt/models
+    path: /opt/models/pretrained_models
 repositories:
   dataset: dsvvvrd9msdm4eo
   mountPath: /opt/repos
@@ -20,4 +20,4 @@ repositories:
       ref: main
 resources:
   replicas: 1
-  instanceType: C5
+  instanceType: P5000
